@@ -23,7 +23,7 @@
     "rest"
   ],
   "author": "Deepak Kumar T P",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@babel/runtime": "^7.10.5"
   },
