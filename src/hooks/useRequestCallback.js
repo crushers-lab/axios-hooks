@@ -4,21 +4,23 @@ import {useCallback} from 'react';
 export function useRequestCallback(url, method, config = {}) {
   const connector = useAxios();
 
-  return useCallback(async () => {
-    try {
-      const response = await connector.request({url, method, ...config});
-      return {
-        data: response.data,
-        status: response.status,
-      };
-    } catch (e) {
-      const error = e.response ? e.response.data : e.message;
-      const status = e.response ? e.response.status : 0;
-      return {
-        error,
-        status,
-      };
-    }
+  return useCallback(() => {
+    return async (conf) => {
+      try {
+        const response = await connector.request({url, method, ...config, ...conf});
+        return {
+          data: response.data,
+          status: response.status,
+        };
+      } catch (e) {
+        const error = e.response ? e.response.data : e.message;
+        const status = e.response ? e.response.status : 0;
+        return {
+          error,
+          status,
+        };
+      }
+    };
   }, [url, method, JSON.stringify(config), connector]);
 }
 

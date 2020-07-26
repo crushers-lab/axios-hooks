@@ -2,7 +2,7 @@
   "name": "@crushers-lab/axios-hooks",
   "homepage": "https://github.com/crushers-lab/axios-hooks#readme",
   "repository": "https://github.com/crushers-lab/axios-hooks",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Axios wrapper for react",
   "main": "dist/index.js",
   "module": "dist/index.es.js",

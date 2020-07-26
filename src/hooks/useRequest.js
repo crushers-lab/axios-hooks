@@ -22,6 +22,7 @@ export function useRequest(url, method, config = {}) {
         isLoading: false,
         data: response.data,
         status: response.status,
+        error: null,
       }));
     } catch (e) {
       const error = e.response ? e.response.data : e.message;
@@ -31,6 +32,7 @@ export function useRequest(url, method, config = {}) {
         isLoading: false,
         error,
         status,
+        data: null,
       }));
     }
   }, [url, method, JSON.stringify(config), connector]);
